@@ -1,5 +1,7 @@
 $(document).ready(function() {
   window.movers = [];
+  var points = 0;
+
 
   $('.addMoverButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-mover
@@ -21,14 +23,27 @@ $(document).ready(function() {
     var moverMakerFunction = window[moverMakerFunctionName];
 
     // make a mover with a random position
+    setInterval(function() {
+      var mover = new moverMakerFunction(
+        $("body").height() * Math.random(),
+        $("body").width() * Math.random(),
+        Math.random() * 1000
+      );
 
-    var mover = new moverMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
-    );
-    console.log(mover);
-    $('body').append(mover.$node);
+    // console.log(mover);
+      $(mover.$node).click(function() {
+        $(mover.$node).remove();
+        points++;
+        $('.pointsShower').text('Points: ' + points);
+      });
+      $('body').append(mover.$node);
+    }, 2000);
+
   });
-});
 
+  // setInterval(function() {
+  //   new AsteroidMover();
+  // }, 2000);
+
+
+});

@@ -4,12 +4,12 @@ var Mover = function(top, left, timeBetweenSteps) {
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node = $('<span class="mover"></span>');
+  this.setPosition(top, left);
   this.step();
-  this.setPosition(top, left); 
 };
 
 Mover.prototype.step = function() {
-  setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  this.step;
 };
 
 Mover.prototype.setPosition = function(top, left) {
