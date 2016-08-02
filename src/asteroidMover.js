@@ -36,7 +36,10 @@ AsteroidMover.prototype.step = function(timeBetweenSteps) {
     'height': newHeight + 'px',
     'width': newWidth + 'px',
     'transform': 'rotate(40deg);'
-  }, 3000);
+  }, 3000, function() {
+    $('.game-over').removeClass('hidden');
+    clearInterval(gamePlay);
+  });
 };
 
 // console.log(this);

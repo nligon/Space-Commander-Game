@@ -3,6 +3,7 @@
 
 <head>
   <title>Captain Awesome Pants</title>
+  <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="styles.css" />
   <script src="lib/jquery.js"></script>
   <script src="src/mover.js"></script>
@@ -11,12 +12,19 @@
 </head>
 
 <body>
-  <div class="topbar">
-    <span class="title">Captain Awesome Pants</span>
-    <a href="#" class="pointsShower">Points: </a>
-    <a href="#" class="addMoverButton" data-mover-maker-function-name="Mover">add a mover</a>
-    <a href="#" class="addMoverButton" data-mover-maker-function-name="AsteroidMover">add an asteroid</a> </div>
-
+  <div class='flexbox-top'>
+    <a href="#" class="points-shower">Points: 0</a>
+  </div>
+<!--    <a href="#" class="addMoverButton" data-mover-maker-function-name="Mover">add a mover</a>
+        <a href="#" class="addMoverButton" data-mover-maker-function-name="AsteroidMover">add an asteroid</a> </div>
+-->
+  <div class= "flexbox">
+    <div class="game-over hidden">
+      <div class='game-over-text'>Game over</div>
+      <div class='game-over-text smaller'>Play again?</div>
+    </div>
+    <div class="start-button">Start</div>
+  </div>
   <script src="src/init.js"></script>
 </body>
 
