@@ -37,7 +37,7 @@ $(document).ready(function() {
         $('.pointsShower').text('Points: ' + points);
       });
       $('body').append(mover.$node);
-    }, 2000);
+    }, 500);
 
   });
 
