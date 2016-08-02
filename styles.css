@@ -1,5 +1,5 @@
 body, html{
-  height:100vh;  
+  height:100vh;
 }
 body{
   margin: 0px;
@@ -11,9 +11,6 @@ body{
   max-height: 100vh;
   overflow: hidden;
   cursor: url('img/rsz_1rsz_bigreticle.gif'), default;
-}
-body, a:link, a:visited, a:active{
-  color: lightblue;
 }
 .title, .addMoverButton {
   padding:5px 12px;
@@ -34,4 +31,47 @@ body, a:link, a:visited, a:active{
   transorm: rotate(40deg);
 /*  background: grey;
   border-radius: 50%;*/
+}
+.flexbox {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'VT323', monospace;
+  cursor: pointer;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.hidden {
+  display: none;
+}
+.start-button {
+  padding: 15px 20px;
+  border: 5px solid #fff;
+  border-radius: 15px;
+}
+.game-over {
+  text-align: center;
+  border: 5px solid #fff;
+  padding: 15px 20px;
+  border-radius: 15px;
+}
+.smaller {
+  margin-top: 15px;
+  font-size: 2rem;
+}
+.flexbox-top {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  justify-content: center;
+}
+.points-shower {
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  color: #fff;
 }
