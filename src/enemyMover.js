@@ -4,14 +4,8 @@ var EnemyMover = function(top, left, timeBetweenSteps) {
 
 EnemyMover.prototype = Object.create(Mover.prototype);
 
-// we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-// so we must keep a copy of the old version of this function
-
 EnemyMover.prototype.setPosition = function(top, left) {
-  // these two instantiate the 'enemy' nodes at completely random points
-  // this.top = Math.floor(Math.random() * $('body').height() + 1);
-  // this.left = Math.floor(Math.random() * $('body').width() + 1);
-  // these two instantiate the 'enemy nodes' in the center 50% of the screen
+
   this.top = Math.random() * ($('body').height() * 0.75 - $('body').height() * 0.25) + $('body').height() * 0.25;
   this.left = Math.random() * ($('body').width() * 0.75 - $('body').width() * 0.25) + $('body').width() * 0.25;
   var styleSettings = {
@@ -19,7 +13,6 @@ EnemyMover.prototype.setPosition = function(top, left) {
     left: this.left
   };
   this.$node.css(styleSettings);
-  // this.detectCorner(top, left);
 };
 
 EnemyMover.prototype.step = function(timeBetweenSteps) {
@@ -42,20 +35,5 @@ EnemyMover.prototype.step = function(timeBetweenSteps) {
     'left': ((edge[1]) && (edge[1] - newWidth)) + 'px',
     'height': newHeight + 'px',
     'width': newWidth + 'px',
-  }, 10000, function() {
-    $('.game-over').removeClass('hidden');
-    clearInterval(gamePlay);
-  });
+  }, 5000, function() {});
 };
-
-// console.log(this);
-// var CL = function(string) {
-//   console.log(JSON.parse(string));
-// };
-
-// generate random range: Math.floor(Math.random()*(max-min+1)+min);
-
-// var findLeft = Math.round(this.left / $('body').width()) * $('body').width();
-// var findTop = Math.round(this.top / $('body').height()) * $('body').height();
-// var newTop = findTop === 0 ? findTop : findTop - newHeight;
-// var newLeft = findLeft === 0 ? findLeft : findLeft - newWidth;

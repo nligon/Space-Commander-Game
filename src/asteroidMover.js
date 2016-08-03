@@ -38,16 +38,6 @@ AsteroidMover.prototype.step = function(timeBetweenSteps) {
     'left': ((edge[1]) && (edge[1] - newWidth)) + 'px',
     'height': newHeight + 'px',
     'width': newWidth + 'px',
-  }, 10000, function() {
-    $('.game-over').removeClass('hidden');
-    clearInterval(gamePlay);
-  });
-  
+  }, 10000, function() {});
+
 };
-
-// generate random range: Math.floor(Math.random()*(max-min+1)+min);
-
-// var findLeft = Math.round(this.left / $('body').width()) * $('body').width();
-// var findTop = Math.round(this.top / $('body').height()) * $('body').height();
-// var newTop = findTop === 0 ? findTop : findTop - newHeight;
-// var newLeft = findLeft === 0 ? findLeft : findLeft - newWidth;
