@@ -7,7 +7,7 @@ AsteroidMover.prototype = Object.create(Mover.prototype);
 // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
 // so we must keep a copy of the old version of this function
 
-Mover.prototype.setPosition = function(top, left) {
+AsteroidMover.prototype.setPosition = function(top, left) {
   this.top = Math.random() * ($('body').height() * 0.55 - $('body').height() * 0.45) + $('body').height() * 0.45;
   this.left = Math.random() * ($('body').width() * 0.55 - $('body').width() * 0.45) + $('body').width() * 0.45;
   var styleSettings = {
@@ -39,7 +39,7 @@ AsteroidMover.prototype.step = function(timeBetweenSteps) {
     'left': ((edge[1]) && (edge[1] - newWidth)) + 'px',
     'height': newHeight + 'px',
     'width': newWidth + 'px',
-  }, 6000, function() {
+  }, 10000, function() {
     $('.game-over').removeClass('hidden');
     clearInterval(gamePlay);
   });

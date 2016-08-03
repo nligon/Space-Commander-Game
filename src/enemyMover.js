@@ -7,9 +7,9 @@ EnemyMover.prototype = Object.create(Mover.prototype);
 // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
 // so we must keep a copy of the old version of this function
 
-Mover.prototype.setPosition = function(top, left) {
-  this.top = Math.random() * ($('body').height() * 0.55 - $('body').height() * 0.45) + $('body').height() * 0.45;
-  this.left = Math.random() * ($('body').width() * 0.55 - $('body').width() * 0.45) + $('body').width() * 0.45;
+EnemyMover.prototype.setPosition = function(top, left) {
+  this.top = Math.floor(Math.random() * $('body').height() + 1);
+  this.left = Math.floor(Math.random() * $('body').width() + 1);
   var styleSettings = {
     top: this.top,
     left: this.left
@@ -19,8 +19,8 @@ Mover.prototype.setPosition = function(top, left) {
 };
 
 EnemyMover.prototype.step = function(timeBetweenSteps) {
-  var enemies = ['img/enemy0.png', 'img/enemy1'];
-  var enemy = enemys[Math.round(Math.random() * 3)];
+  var enemies = ['img/enemy0.gif', 'img/enemy1.gif'];
+  var enemy = enemies[Math.round(Math.random())];
   this.$node.html('<img class="mover" src=' + enemy + '></img>');
   Mover.prototype.step.call(this);
   var newHeight = $('body').height() / 4;
