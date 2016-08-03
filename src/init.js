@@ -1,6 +1,9 @@
 var gamePlay;
-var music = new Audio('mp3/dfmusic.mp3');
+var music = new Audio('mp3/dfMusic.mp3');
 var laser = new Audio('mp3/laser0.wav');
+laser.volume = .5;
+var astBoom = new Audio('mp3/enemyBoom.mp3');
+astBoom.volume = .4;
 music.play();
 
 $(document).ready(function() {
@@ -36,7 +39,10 @@ $(document).ready(function() {
       );
 
       $(mover.$node).click(function() {
+        laser.currentTime = 0;
         laser.play();
+        astBoom.currentTime = 0;
+        astBoom.play();
         points++;
         var explosion = 'img/expl0.gif';
         $(mover.$node).find('img').attr('src', explosion);
