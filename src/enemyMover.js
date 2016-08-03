@@ -19,7 +19,7 @@ Mover.prototype.setPosition = function(top, left) {
 };
 
 EnemyMover.prototype.step = function(timeBetweenSteps) {
-  var enemies = ['img/enemy0.png', 'img/enemy1.png', 'img/enemy2.png', 'img/enemy3.gif'];
+  var enemies = ['img/enemy0.png', 'img/enemy1'];
   var enemy = enemys[Math.round(Math.random() * 3)];
   this.$node.html('<img class="mover" src=' + enemy + '></img>');
   Mover.prototype.step.call(this);
