@@ -1,12 +1,17 @@
 var gamePlay;
-var audio = new Audio('mp3/dfmusic.mp3');
-audio.play();
+var music = new Audio('mp3/dfmusic.mp3');
+var laser = new Audio('mp3/laser0.wav');
+music.play();
+
 $(document).ready(function() {
   window.movers = [];
   var points = 0;
 
-
   $('.start').on('click', function(event) {
+    $(document.body).click(function() {
+      laser.currentTime = 0;
+      laser.play();
+    });
     /* This function sets up the click handlers for the create-mover
      * buttons on AwesomePants.html. You should only need to make one small change to it.
      * As long as the "data-mover-maker-function-name" attribute of a
@@ -31,6 +36,7 @@ $(document).ready(function() {
       );
 
       $(mover.$node).click(function() {
+        laser.play();
         points++;
         var explosion = 'img/expl0.gif';
         $(mover.$node).find('img').attr('src', explosion);
@@ -43,6 +49,6 @@ $(document).ready(function() {
     }, 500);
   });
 });
-  // setInterval(function() {
-  //   new AsteroidMover();
-  // }, 2000);
+// setInterval(function() {
+//   new AsteroidMover();
+// }, 2000);
