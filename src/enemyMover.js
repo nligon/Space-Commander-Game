@@ -1,8 +1,8 @@
-var AsteroidMover = function(top, left, timeBetweenSteps) {
+var EnemyMover = function(top, left, timeBetweenSteps) {
   Mover.apply(this, arguments);
 };
 
-AsteroidMover.prototype = Object.create(Mover.prototype);
+EnemyMover.prototype = Object.create(Mover.prototype);
 
 // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
 // so we must keep a copy of the old version of this function
@@ -18,10 +18,10 @@ Mover.prototype.setPosition = function(top, left) {
   // this.detectCorner(top, left);
 };
 
-AsteroidMover.prototype.step = function(timeBetweenSteps) {
-  var asteroids = ['img/asteroid0.png', 'img/asteroid1.png', 'img/asteroid2.png', 'img/asteroid3.gif'];
-  var asteroid = asteroids[Math.round(Math.random() * 3)];
-  this.$node.html('<img class="mover" src=' + asteroid + '></img>');
+EnemyMover.prototype.step = function(timeBetweenSteps) {
+  var enemies = ['img/enemy0.png', 'img/enemy1.png', 'img/enemy2.png', 'img/enemy3.gif'];
+  var enemy = enemys[Math.round(Math.random() * 3)];
+  this.$node.html('<img class="mover" src=' + enemy + '></img>');
   Mover.prototype.step.call(this);
   var newHeight = $('body').height() / 4;
   var newWidth = $('body').width() / 4;
