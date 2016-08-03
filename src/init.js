@@ -1,4 +1,6 @@
 var gamePlay;
+var audio = new Audio('img/');
+audio.play();
 $(document).ready(function() {
   window.movers = [];
   var points = 0;
