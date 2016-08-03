@@ -27,8 +27,8 @@ EnemyMover.prototype.step = function(timeBetweenSteps) {
   var enemy = enemies[Math.floor(Math.random() * 2)];
   this.$node.html('<img class="mover" src=' + enemy + '></img>');
   Mover.prototype.step.call(this);
-  var newHeight = $('body').height() / 4;
-  var newWidth = $('body').width() / 4;
+  var newHeight = $('body').height() / 2;
+  var newWidth = $('body').width() / 2;
 
   var top = [0 - 1.5 * newHeight, Math.floor(Math.random() * $('body').width() + 1)];
   var right = [Math.floor(Math.random() * $('body').height() + 1), $('body').width() + 1.5 * newWidth];

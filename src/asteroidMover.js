@@ -23,8 +23,8 @@ AsteroidMover.prototype.step = function(timeBetweenSteps) {
   var asteroid = asteroids[Math.round(Math.random() * 3)];
   this.$node.html('<img class="mover" src=' + asteroid + '></img>');
   Mover.prototype.step.call(this);
-  var newHeight = $('body').height() / 3;
-  var newWidth = $('body').width() / 3;
+  var newHeight = $('body').height() / 2;
+  var newWidth = $('body').width() / 2;
 
   var topEdge = [0 - 1.5 * newHeight, Math.floor(Math.random() * $('body').width() + 1)];
   var rightEdge = [Math.floor(Math.random() * $('body').height() + 1), $('body').width() + 1.5 * newWidth];
@@ -42,12 +42,8 @@ AsteroidMover.prototype.step = function(timeBetweenSteps) {
     $('.game-over').removeClass('hidden');
     clearInterval(gamePlay);
   });
+  
 };
-
-// console.log(this);
-// var CL = function(string) {
-//   console.log(JSON.parse(string));
-// };
 
 // generate random range: Math.floor(Math.random()*(max-min+1)+min);
 
