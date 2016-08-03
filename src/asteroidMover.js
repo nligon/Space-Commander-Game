@@ -23,18 +23,17 @@ AsteroidMover.prototype.step = function(timeBetweenSteps) {
   var asteroid = asteroids[Math.round(Math.random() * 3)];
   this.$node.html('<img class="mover" src=' + asteroid + '></img>');
   Mover.prototype.step.call(this);
-  var newHeight = $('body').height() / 4;
-  var newWidth = $('body').width() / 4;
-  var getRandIdx = Math.floor(Math.random() * 4);
+  var newHeight = $('body').height() / 3;
+  var newWidth = $('body').width() / 3;
 
-  var top = [0, Math.floor(Math.random() * $('body').width() + 1)];
-  var right = [Math.floor(Math.random() * $('body').height() + 1), $('body').width()];
-  var bottom = [$('body').height(), Math.floor(Math.random() * $('body').width() + 1)];
-  var left = [Math.floor(Math.random() * $('body').height() + 1), 0];
+  var topEdge = [0 - 1.5 * newHeight, Math.floor(Math.random() * $('body').width() + 1)];
+  var rightEdge = [Math.floor(Math.random() * $('body').height() + 1), $('body').width() + 1.5 * newWidth];
+  var bottomEdge = [$('body').height() + 1.5 * newHeight, Math.floor(Math.random() * $('body').width() + 1)];
+  var leftEdge = [Math.floor(Math.random() * $('body').height() + 1), 0 - 1.5 * newWidth];
 
-  var edge = [top, right, bottom, left][Math.floor(Math.random() * 4)];
+  var edge = [topEdge, rightEdge, bottomEdge, leftEdge][Math.floor(Math.random() * 4)];
 
-  this.$node.css({'transform': 'rotate(45deg)'}).animate({
+  this.$node.animate({
     'top': ((edge[0]) && (edge[0] - newHeight)) + 'px',
     'left': ((edge[1]) && (edge[1] - newWidth)) + 'px',
     'height': newHeight + 'px',

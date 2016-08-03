@@ -8,8 +8,12 @@ EnemyMover.prototype = Object.create(Mover.prototype);
 // so we must keep a copy of the old version of this function
 
 EnemyMover.prototype.setPosition = function(top, left) {
-  this.top = Math.floor(Math.random() * $('body').height() + 1);
-  this.left = Math.floor(Math.random() * $('body').width() + 1);
+  // these two instantiate the 'enemy' nodes at completely random points
+  // this.top = Math.floor(Math.random() * $('body').height() + 1);
+  // this.left = Math.floor(Math.random() * $('body').width() + 1);
+  // these two instantiate the 'enemy nodes' in the center 50% of the screen
+  this.top = Math.random() * ($('body').height() * 0.75 - $('body').height() * 0.25) + $('body').height() * 0.25;
+  this.left = Math.random() * ($('body').width() * 0.75 - $('body').width() * 0.25) + $('body').width() * 0.25;
   var styleSettings = {
     top: this.top,
     left: this.left
@@ -20,26 +24,25 @@ EnemyMover.prototype.setPosition = function(top, left) {
 
 EnemyMover.prototype.step = function(timeBetweenSteps) {
   var enemies = ['img/enemy0.gif', 'img/enemy1.gif'];
-  var enemy = enemies[Math.round(Math.random())];
+  var enemy = enemies[Math.floor(Math.random() * 2)];
   this.$node.html('<img class="mover" src=' + enemy + '></img>');
   Mover.prototype.step.call(this);
   var newHeight = $('body').height() / 4;
   var newWidth = $('body').width() / 4;
-  var getRandIdx = Math.floor(Math.random() * 4);
 
-  var top = [0, Math.floor(Math.random() * $('body').width() + 1)];
-  var right = [Math.floor(Math.random() * $('body').height() + 1), $('body').width()];
-  var bottom = [$('body').height(), Math.floor(Math.random() * $('body').width() + 1)];
-  var left = [Math.floor(Math.random() * $('body').height() + 1), 0];
+  var top = [0 - 1.5 * newHeight, Math.floor(Math.random() * $('body').width() + 1)];
+  var right = [Math.floor(Math.random() * $('body').height() + 1), $('body').width() + 1.5 * newWidth];
+  var bottom = [$('body').height() + 1.5 * newHeight, Math.floor(Math.random() * $('body').width() + 1)];
+  var left = [Math.floor(Math.random() * $('body').height() + 1), 0 - 1.5 * newWidth];
 
   var edge = [top, right, bottom, left][Math.floor(Math.random() * 4)];
 
-  this.$node.css({'transform': 'rotate(45deg)'}).animate({
+  this.$node.animate({
     'top': ((edge[0]) && (edge[0] - newHeight)) + 'px',
     'left': ((edge[1]) && (edge[1] - newWidth)) + 'px',
     'height': newHeight + 'px',
     'width': newWidth + 'px',
-  }, 6000, function() {
+  }, 10000, function() {
     $('.game-over').removeClass('hidden');
     clearInterval(gamePlay);
   });
