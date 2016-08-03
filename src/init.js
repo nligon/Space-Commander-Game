@@ -1,5 +1,5 @@
 var gamePlay;
-var audio = new Audio('img/');
+var audio = new Audio('mp3/dfmusic.mp3');
 audio.play();
 $(document).ready(function() {
   window.movers = [];
