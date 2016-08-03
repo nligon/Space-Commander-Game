@@ -19,8 +19,8 @@ Mover.prototype.setPosition = function(top, left) {
 };
 
 AsteroidMover.prototype.step = function(timeBetweenSteps) {
-  var asteroids = ['img/asteroidTwo.png', 'img/asteroidThree.jpg'];
-  var asteroid = asteroids[Math.round(Math.random())];
+  var asteroids = ['img/asteroid0.png', 'img/asteroid1.png', 'img/asteroid2.png', 'img/asteroid3.gif'];
+  var asteroid = asteroids[Math.round(Math.random() * 3)];
   this.$node.html('<img class="mover" src=' + asteroid + '></img>');
   Mover.prototype.step.call(this);
   var newHeight = $('body').height() / 4;
@@ -34,12 +34,11 @@ AsteroidMover.prototype.step = function(timeBetweenSteps) {
 
   var edge = [top, right, bottom, left][Math.floor(Math.random() * 4)];
 
-  this.$node.animate({
+  this.$node.css({'transform': 'rotate(45deg)'}).animate({
     'top': ((edge[0]) && (edge[0] - newHeight)) + 'px',
     'left': ((edge[1]) && (edge[1] - newWidth)) + 'px',
     'height': newHeight + 'px',
     'width': newWidth + 'px',
-    'transform': 'rotate(40deg);'
   }, 3000, function() {
     $('.game-over').removeClass('hidden');
     clearInterval(gamePlay);

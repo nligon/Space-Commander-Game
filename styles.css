@@ -10,7 +10,7 @@ body{
   max-width: 100vw;
   max-height: 100vh;
   overflow: hidden;
-  cursor: url('img/rsz_1rsz_bigreticle.gif'), default;
+  cursor: url('img/reticle.gif'), default;
 }
 .title, .addMoverButton {
   padding:5px 12px;
@@ -28,7 +28,6 @@ body{
   width: 100%;
   height: 100%;
   position: absolute;
-  transorm: rotate(40deg);
 /*  background: grey;
   border-radius: 50%;*/
 }
@@ -41,7 +40,6 @@ body{
   justify-content: center;
   color: #fff;
   font-family: 'VT323', monospace;
-  cursor: pointer;
   font-size: 3rem;
   text-transform: uppercase;
 }
@@ -49,12 +47,14 @@ body{
   display: none;
 }
 .start-button {
+  cursor: pointer;
   padding: 15px 20px;
   border: 5px solid #fff;
   border-radius: 15px;
 }
 .game-over {
   text-align: center;
+  cursor: pointer;
   border: 5px solid #fff;
   padding: 15px 20px;
   border-radius: 15px;

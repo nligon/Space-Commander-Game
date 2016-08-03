@@ -4,7 +4,7 @@ $(document).ready(function() {
   var points = 0;
 
 
-  $('.start-button').on('click', function(event) {
+  $('.start').on('click', function(event) {
     /* This function sets up the click handlers for the create-mover
      * buttons on AwesomePants.html. You should only need to make one small change to it.
      * As long as the "data-mover-maker-function-name" attribute of a
@@ -29,9 +29,13 @@ $(document).ready(function() {
       );
 
       $(mover.$node).click(function() {
-        $(mover.$node).remove();
         points++;
+        var explosion = 'img/expl0.gif';
+        $(mover.$node).find('img').attr('src', explosion);
         $('.pointsShower').text('Points: ' + points);
+        setTimeout(function() {
+          $(mover.$node).remove();
+        }, 1000);
       });
       $('body').append(mover.$node);
     }, 500);
